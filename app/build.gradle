@@ -39,15 +39,27 @@ dependencies {
     implementation androidSupport.constraintLayout
 
     implementation libs.kotlin
+    implementation libs.kotlinReflect
 
     implementation libs.dagger
     kapt libs.daggerCompiler
+    kapt libs.daggerProcessor
 
     implementation libs.rxJava
     implementation libs.rxAndroid
 
+    implementation libs.archExtensions
+    implementation libs.archJava8
+    implementation libs.archRx
+    kapt libs.archCompiler
+
+    implementation libs.retrofit
+    implementation libs.retrofitConverter
+    implementation libs.retrofitRxAdapter
+
     testImplementation libs.junit
-    testImplementation libs.mockito
+    testImplementation libs.kotlin
+    testImplementation libs.mockito, { exclude group: 'net.bytebuddy' }
     testImplementation libs.robolectric
     testImplementation libs.hamcrest
 

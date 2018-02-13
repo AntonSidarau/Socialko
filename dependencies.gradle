@@ -1,3 +1,5 @@
+import com.sun.org.apache.regexp.internal.RE
+
 // project dependencies
 
 ext {
@@ -8,12 +10,15 @@ ext {
     // endregion
 
     // region main lib versions
-    DAGGER_VERSION = '2.13'
+    DAGGER_VERSION = '2.14.1'
     SUPPORT_VERSION = '27.0.2'
     KOTLIN_VERSION = '1.1.51'
+    KOTLIN_REFLECT_VERSION = '1.2.21'
     CONSTRAINT_LAYOUT_VERSION = '1.0.2'
     RX_JAVA_VERSION = '2.1.9'
     RX_ANDROID_VERSION = '2.0.1'
+    LIFECYCLE_VERSION = '1.1.0'
+    RETROFIT_VERSION = '2.3.0'
     // endregion
 
     // region test lib versions
@@ -37,21 +42,33 @@ ext {
 
     libs = [
             // dagger
-            dagger        : "com.google.dagger:dagger-android:$DAGGER_VERSION",
-            daggerCompiler: "com.google.dagger:dagger-compiler:$DAGGER_VERSION",
+            dagger           : "com.google.dagger:dagger-android-support:$DAGGER_VERSION",
+            daggerCompiler   : "com.google.dagger:dagger-compiler:$DAGGER_VERSION",
+            daggerProcessor  : "com.google.dagger:dagger-android-processor:$DAGGER_VERSION",
 
             // rxJava
-            rxJava        : "io.reactivex.rxjava2:rxjava:$RX_JAVA_VERSION",
-            rxAndroid     : "io.reactivex.rxjava2:rxandroid:$RX_ANDROID_VERSION",
+            rxJava           : "io.reactivex.rxjava2:rxjava:$RX_JAVA_VERSION",
+            rxAndroid        : "io.reactivex.rxjava2:rxandroid:$RX_ANDROID_VERSION",
+
+            //architecture components
+            archExtensions   : "android.arch.lifecycle:extensions:$LIFECYCLE_VERSION",
+            archJava8        : "android.arch.lifecycle:common-java8:$LIFECYCLE_VERSION",
+            archCompiler     : "android.arch.lifecycle:compiler:$LIFECYCLE_VERSION",
+            archRx           : "android.arch.lifecycle:reactivestreams:$LIFECYCLE_VERSION",
+
+            retrofit         : "com.squareup.retrofit2:retrofit:$RETROFIT_VERSION",
+            retrofitConverter: "com.squareup.retrofit2:converter-gson:$RETROFIT_VERSION",
+            retrofitRxAdapter: "com.squareup.retrofit2:adapter-rxjava2:$RETROFIT_VERSION",
 
             // tools
-            kotlin        : "org.jetbrains.kotlin:kotlin-stdlib:$KOTLIN_VERSION",
+            kotlin           : "org.jetbrains.kotlin:kotlin-stdlib:$KOTLIN_VERSION",
+            kotlinReflect: "org.jetbrains.kotlin:kotlin-reflect:$KOTLIN_REFLECT_VERSION",
 
             // region testing
-            junit         : "junit:junit:$JUNIT_VERSION",
-            hamcrest      : "org.hamcrest:hamcrest-library:$HAMCREST_VERSION",
-            mockito       : "org.mockito:mockito-core:$MOCKITO_VERSION",
-            robolectric   : "org.robolectric:robolectric:$ROBOLECTRIC_VERSION"
+            junit            : "junit:junit:$JUNIT_VERSION",
+            hamcrest         : "org.hamcrest:hamcrest-library:$HAMCREST_VERSION",
+            mockito          : "org.mockito:mockito-core:$MOCKITO_VERSION",
+            robolectric      : "org.robolectric:robolectric:$ROBOLECTRIC_VERSION"
             // endregion
     ]
 }
