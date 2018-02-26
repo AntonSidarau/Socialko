@@ -20,11 +20,11 @@ import javax.inject.Singleton
  * @author Anton Sidorov
  */
 @Module
-interface NetworkModule {
+abstract class NetworkModule {
 
     @Singleton
     @Binds
-    fun providerAuthIntercepter(authInterceptor: AuthorizationInterceptor): Interceptor
+    abstract fun providerAuthIntercepter(authInterceptor: AuthorizationInterceptor): Interceptor
 
     @Module
     companion object {
@@ -32,11 +32,13 @@ interface NetworkModule {
         @Singleton
         @Provides
         @ServerPath
+        @JvmStatic
         fun providerServerPath() = "https://socialko.cfapps.io/api/"
 
         @Singleton
         @Provides
-        fun provideHttpClient(authInterceptor: Interceptor) = {
+        @JvmStatic
+        fun provideHttpClient(authInterceptor: Interceptor): OkHttpClient {
             //FIXME interceptors of error responses???
             val httpClientBuilder = OkHttpClient.Builder()
             httpClientBuilder.readTimeout(20, TimeUnit.SECONDS)
@@ -48,16 +50,18 @@ interface NetworkModule {
                 httpClientBuilder.addNetworkInterceptor(httpLoggingInterceptor)
             }
 
-            httpClientBuilder.build()
+            return httpClientBuilder.build()
         }
 
         @Singleton
         @Provides
+        @JvmStatic
         fun provideSocialkoApi(retrofit: Retrofit): SocialkoApi =
                 retrofit.create(SocialkoApi::class.java)
 
         @Singleton
         @Provides
+        @JvmStatic
         fun provideRetrofit(
                 @ServerPath baseUrl: String,
                 okHttpClient: OkHttpClient

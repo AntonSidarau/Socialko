@@ -43,9 +43,9 @@ class RegisterViewModel(
     ) {
         val user = User(firstName, lastName, email, password)
         userInteractor.signUp(user)
+                .compose(schedulerTransformers.ioToUiTransformerCompletable())
                 .doOnSubscribe({ liveData.setValue(Response.Progress(true)) })
                 .doAfterTerminate({ liveData.setValue(Response.Progress(false)) })
-                .compose(schedulerTransformers.ioToUiTransformerCompletable())
                 .subscribe(
                         { liveData.setValue(Response.Success(Unit)) },
                         { liveData.setValue(Response.Error(it)) })

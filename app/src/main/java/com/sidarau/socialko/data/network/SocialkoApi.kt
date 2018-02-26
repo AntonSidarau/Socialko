@@ -14,11 +14,11 @@ import retrofit2.http.POST
  */
 interface SocialkoApi {
 
-    @POST("/signUp")
+    @POST("signUp")
     @Headers("No-Authentication: true")
     fun signUp(@Body user: UserRequest): Completable
 
-    @GET("/login")
+    @GET("login")
     @Headers("No-Authentication: true")
     fun login(): Single<UserResponse>
 }

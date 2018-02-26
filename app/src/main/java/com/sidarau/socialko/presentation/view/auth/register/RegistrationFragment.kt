@@ -4,6 +4,7 @@ import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProvider
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
+import android.util.Log
 import com.sidarau.socialko.R
 import com.sidarau.socialko.models.presentation.Response
 import com.sidarau.socialko.presentation.view.core.BaseFragment
@@ -58,7 +59,10 @@ class RegistrationFragment : BaseFragment() {
         viewModel.liveData.observe(this, Observer {
             it?.let {
                 when (it) {
-                    is Response.Error -> showSnackMessage(getString(R.string.registration_fail))
+                    is Response.Error -> {
+                        showSnackMessage(getString(R.string.registration_fail))
+                        Log.e(TAG, "Failure", it.e)
+                    }
                     is Response.Success<*> -> fragmentManager?.popBackStack()
                     is Response.Progress -> showProgressDialog(it.progress)
                 }
