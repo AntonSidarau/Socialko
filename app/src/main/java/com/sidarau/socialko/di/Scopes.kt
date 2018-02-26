@@ -7,11 +7,7 @@ import javax.inject.Scope
  */
 @Scope
 @Retention(AnnotationRetention.RUNTIME)
-annotation class SplashScope
-
-@Scope
-@Retention(AnnotationRetention.RUNTIME)
-annotation class AuthScope
+annotation class ActivityScope
 
 @Scope
 @Retention(AnnotationRetention.RUNTIME)

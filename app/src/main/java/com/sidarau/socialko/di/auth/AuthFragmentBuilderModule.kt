@@ -13,11 +13,11 @@ import dagger.android.ContributesAndroidInjector
 interface AuthFragmentBuilderModule {
 
     @FragmentScope
-    @ContributesAndroidInjector
+    @ContributesAndroidInjector(modules = arrayOf(LoginModule::class))
     fun loginFragment(): LoginFragment
 
     @FragmentScope
-    @ContributesAndroidInjector
+    @ContributesAndroidInjector(modules = arrayOf(RegisterModule::class))
     fun registrationFragment(): RegistrationFragment
 
 }

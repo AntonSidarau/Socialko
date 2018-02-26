@@ -1,4 +1,4 @@
-package com.sidarau.socialko.presentation
+package com.sidarau.socialko.presentation.view.core
 
 import android.os.Bundle
 import android.support.v4.app.Fragment

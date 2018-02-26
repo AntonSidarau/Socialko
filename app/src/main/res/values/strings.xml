@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Socialko</string>
+
+    <!-- Errors -->
+    <string name="irregular_first_name">Имя содержит менее 3 букв</string>
+    <string name="irregular_last_name">Фамилия содержит менее 3 букв</string>
+    <string name="irregular_email">Неверный формат почты</string>
+    <string name="irregular_password">Пароль слишком короткий</string>
+    <string name="registration_fail">Не удалось зарегистрироваться</string>
 </resources>

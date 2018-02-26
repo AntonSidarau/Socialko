@@ -4,9 +4,9 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import com.sidarau.socialko.R
-import com.sidarau.socialko.presentation.BaseActivity
 import com.sidarau.socialko.presentation.view.auth.login.LoginFragment
 import com.sidarau.socialko.presentation.view.auth.register.RegistrationFragment
+import com.sidarau.socialko.presentation.view.core.BaseActivity
 
 
 /**
@@ -18,9 +18,11 @@ class AuthActivity : BaseActivity(), LoginFragment.OnRegisterClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        supportFragmentManager.beginTransaction()
-                .replace(R.id.container_layout, LoginFragment.newInstance())
-                .commit()
+        savedInstanceState ?: run {
+            supportFragmentManager.beginTransaction()
+                    .replace(R.id.container_layout, LoginFragment.newInstance())
+                    .commit()
+        }
     }
 
     override val layoutRes: Int

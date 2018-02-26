@@ -1,7 +1,6 @@
 package com.sidarau.socialko.di.application.module
 
-import com.sidarau.socialko.di.AuthScope
-import com.sidarau.socialko.di.SplashScope
+import com.sidarau.socialko.di.ActivityScope
 import com.sidarau.socialko.di.auth.AuthModule
 import com.sidarau.socialko.di.splash.SplashModule
 import com.sidarau.socialko.presentation.view.auth.AuthActivity
@@ -15,11 +14,11 @@ import dagger.android.ContributesAndroidInjector
 @Module
 interface ActivityBuilderModule {
 
-    @SplashScope
+    @ActivityScope
     @ContributesAndroidInjector(modules = arrayOf(SplashModule::class))
     fun splashActivity(): SplashActivity
 
-    @AuthScope
+    @ActivityScope
     @ContributesAndroidInjector(modules = arrayOf(AuthModule::class))
     fun authActivity(): AuthActivity
 }

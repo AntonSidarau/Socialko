@@ -3,4 +3,6 @@
     <color name="colorPrimary">#8f91d5</color>
     <color name="colorPrimaryDark">#5f64a3</color>
     <color name="colorAccent">#84C9C6</color>
+
+    <color name="progressBackground">#608f91d5</color>
 </resources>

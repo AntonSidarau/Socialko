@@ -2,9 +2,8 @@ package com.sidarau.socialko.presentation.view.auth.login
 
 import android.content.Context
 import android.os.Bundle
-import android.view.View
 import com.sidarau.socialko.R
-import com.sidarau.socialko.presentation.BaseFragment
+import com.sidarau.socialko.presentation.view.core.BaseFragment
 import kotlinx.android.synthetic.main.login_fragment.*
 
 /**
@@ -22,8 +21,8 @@ class LoginFragment : BaseFragment() {
         listener = context as OnRegisterClickListener
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
 
         btnLogin.setOnClickListener {
             //do smth
@@ -37,6 +36,14 @@ class LoginFragment : BaseFragment() {
     override fun onDetach() {
         super.onDetach()
         listener = null
+    }
+
+    override fun initViewModel() {
+
+    }
+
+    override fun observeLiveData() {
+
     }
 
     interface OnRegisterClickListener {
