@@ -20,7 +20,7 @@ abstract class BaseFragment : Fragment() {
     abstract val layoutRes: Int
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        savedInstanceState ?: AndroidSupportInjection.inject(this)
+        AndroidSupportInjection.inject(this)
         super.onCreate(savedInstanceState)
     }
 

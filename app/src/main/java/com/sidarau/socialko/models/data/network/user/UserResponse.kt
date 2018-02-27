@@ -1,15 +1,14 @@
 package com.sidarau.socialko.models.data.network.user
 
 import com.google.gson.annotations.SerializedName
-import java.util.*
 
 /**
  * @author Anton Sidorov
  */
 class UserResponse(
         @SerializedName("avatar") val avatarUrl: String,
-        @SerializedName("birthDate") val birthDate: Date,
-        @SerializedName("created") val creationDate: Date,
+        @SerializedName("birthDate") val birthDate: Long?,
+        @SerializedName("created") val creationDate: Long,
         @SerializedName("email") val email: String,
         @SerializedName("firstName") val firstName: String,
         @SerializedName("friendOfMine") val friendOfMine: Boolean,

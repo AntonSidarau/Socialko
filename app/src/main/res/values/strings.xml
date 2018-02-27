@@ -7,4 +7,5 @@
     <string name="irregular_email">Неверный формат почты</string>
     <string name="irregular_password">Пароль слишком короткий</string>
     <string name="registration_fail">Не удалось зарегистрироваться</string>
+    <string name="login_fail">Не удалось войти</string>
 </resources>

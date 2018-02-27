@@ -42,7 +42,6 @@ abstract class NetworkModule {
             //FIXME interceptors of error responses???
             val httpClientBuilder = OkHttpClient.Builder()
             httpClientBuilder.readTimeout(20, TimeUnit.SECONDS)
-            httpClientBuilder.addNetworkInterceptor(authInterceptor)
 
             if (BuildConfig.DEBUG) {
                 val httpLoggingInterceptor = HttpLoggingInterceptor()
@@ -50,6 +49,7 @@ abstract class NetworkModule {
                 httpClientBuilder.addNetworkInterceptor(httpLoggingInterceptor)
             }
 
+            httpClientBuilder.addInterceptor(authInterceptor)
             return httpClientBuilder.build()
         }
 

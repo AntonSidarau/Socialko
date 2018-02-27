@@ -3,7 +3,7 @@ package com.sidarau.socialko.presentation.vm.auth.register
 import com.sidarau.socialko.core.rx.RxSchedulerTransformers
 import com.sidarau.socialko.core.rx.SchedulersProvider
 import com.sidarau.socialko.domain.auth.UserInteractor
-import com.sidarau.socialko.models.domain.user.User
+import com.sidarau.socialko.models.domain.user.AuthUser
 import com.sidarau.socialko.models.presentation.Response
 import com.sidarau.socialko.presentation.vm.core.BaseViewModel
 import com.sidarau.socialko.presentation.vm.core.SingleLiveData
@@ -22,13 +22,8 @@ class RegisterViewModel(
     val agreementLiveData = SingleLiveData<Boolean>()
     val validateLiveData = SingleLiveData<List<String>>()
 
-    fun validate(
-            firstName: String,
-            lastName: String,
-            email: String,
-            password: String
-    ) {
-        val user = User(firstName, lastName, email, password)
+    fun validate(firstName: String, lastName: String, email: String, password: String) {
+        val user = AuthUser(firstName, lastName, email, password)
         userInteractor.validateRegister(user)
                 .compose(schedulerTransformers.ioToUiTransformerSingle())
                 .subscribe(Consumer { validateLiveData.setValue(it) })
@@ -41,7 +36,7 @@ class RegisterViewModel(
             email: String,
             password: String
     ) {
-        val user = User(firstName, lastName, email, password)
+        val user = AuthUser(firstName, lastName, email, password)
         userInteractor.signUp(user)
                 .compose(schedulerTransformers.ioToUiTransformerCompletable())
                 .doOnSubscribe({ liveData.setValue(Response.Progress(true)) })

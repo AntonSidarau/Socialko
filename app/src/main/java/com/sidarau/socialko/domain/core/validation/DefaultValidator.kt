@@ -14,8 +14,8 @@ class DefaultValidator @Inject constructor(
 
     private val fields: MutableMap<String, String> = HashMap()
 
-    override fun addField(key: String, field: String) {
-        fields.put(key, field)
+    override fun addField(key: String, field: String?) {
+        fields.put(key, field ?: EMPTY_STRING)
     }
 
     override fun validate(): Boolean {

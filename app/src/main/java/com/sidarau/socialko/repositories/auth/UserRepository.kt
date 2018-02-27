@@ -1,6 +1,6 @@
 package com.sidarau.socialko.repositories.auth
 
-import com.sidarau.socialko.models.data.network.user.UserResponse
+import com.sidarau.socialko.models.domain.user.AuthUser
 import com.sidarau.socialko.models.domain.user.User
 import io.reactivex.Completable
 import io.reactivex.Maybe
@@ -10,7 +10,7 @@ import io.reactivex.Maybe
  */
 interface UserRepository {
 
-    fun signUp(user: User): Completable
+    fun signUp(user: AuthUser): Completable
 
-    fun login(): Maybe<UserResponse>
+    fun login(token: String): Maybe<User>
 }

@@ -32,7 +32,7 @@
             android:layout_marginBottom="8dp" />
 
         <EditText
-            android:id="@+id/et_password"
+            android:id="@+id/etPassword"
             android:inputType="textPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />

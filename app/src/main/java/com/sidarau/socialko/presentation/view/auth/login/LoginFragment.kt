@@ -1,16 +1,28 @@
 package com.sidarau.socialko.presentation.view.auth.login
 
+import android.arch.lifecycle.Observer
+import android.arch.lifecycle.ViewModelProvider
+import android.arch.lifecycle.ViewModelProviders
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import com.sidarau.socialko.R
+import com.sidarau.socialko.models.presentation.Response
 import com.sidarau.socialko.presentation.view.core.BaseFragment
+import com.sidarau.socialko.presentation.view.main.MainActivity
+import com.sidarau.socialko.presentation.vm.auth.login.LoginViewModel
 import kotlinx.android.synthetic.main.login_fragment.*
+import javax.inject.Inject
 
 /**
  * @author Anton Sidorov
  */
 class LoginFragment : BaseFragment() {
 
+    @Inject
+    internal lateinit var viewModelFactory: ViewModelProvider.Factory
+
+    private lateinit var viewModel: LoginViewModel
     private var listener: OnRegisterClickListener? = null
 
     override val layoutRes: Int
@@ -25,7 +37,7 @@ class LoginFragment : BaseFragment() {
         super.onActivityCreated(savedInstanceState)
 
         btnLogin.setOnClickListener {
-            //do smth
+            viewModel.validate(etLogin.text.toString(), etPassword.text.toString())
         }
 
         btnRegister.setOnClickListener {
@@ -39,11 +51,30 @@ class LoginFragment : BaseFragment() {
     }
 
     override fun initViewModel() {
-
+        viewModel = ViewModelProviders.of(this, viewModelFactory).get(LoginViewModel::class.java)
     }
 
     override fun observeLiveData() {
+        viewModel.validateLiveData.observe(this, Observer {
+            it?.let {
+                if (it.isEmpty()) {
+                    viewModel.login(etLogin.text.toString(), etPassword.text.toString())
+                } else showSnackMessage(it.joinToString("\n"))
+            }
+        })
 
+        viewModel.liveData.observe(this, Observer {
+            it?.let {
+                when (it) {
+                    is Response.Error -> {
+                        showSnackMessage(getString(R.string.login_fail))
+                        Log.e(TAG, "Failure", it.e)
+                    }
+                    is Response.Success<*> -> context?.let { startActivity(MainActivity.newIntent(it)) }
+                    is Response.Progress -> showProgressDialog(it.progress)
+                }
+            }
+        })
     }
 
     interface OnRegisterClickListener {

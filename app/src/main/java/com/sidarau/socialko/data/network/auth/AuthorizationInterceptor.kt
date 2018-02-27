@@ -19,9 +19,10 @@ class AuthorizationInterceptor @Inject constructor(
 
         if (request.header("No-Authentication") === null) {
             authHolder.token?.let {
-                request.newBuilder()
+                val authRequest = request.newBuilder()
                         .addHeader("Authorization", it)
                         .build()
+                return chain.proceed(authRequest)
             } ?: throw AuthException()
         }
 

@@ -23,7 +23,7 @@ abstract class BaseActivity : AppCompatActivity(), HasSupportFragmentInjector {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        savedInstanceState ?: AndroidInjection.inject(this)
+        AndroidInjection.inject(this)
         setContentView(layoutRes)
     }
 

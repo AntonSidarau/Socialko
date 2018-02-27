@@ -3,7 +3,7 @@ package com.sidarau.socialko.data.network
 import com.sidarau.socialko.models.data.network.user.UserRequest
 import com.sidarau.socialko.models.data.network.user.UserResponse
 import io.reactivex.Completable
-import io.reactivex.Single
+import io.reactivex.Maybe
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.Headers
@@ -19,6 +19,6 @@ interface SocialkoApi {
     fun signUp(@Body user: UserRequest): Completable
 
     @GET("login")
-    @Headers("No-Authentication: true")
-    fun login(): Single<UserResponse>
+    @Headers("Content-type: application/json")
+    fun login(): Maybe<UserResponse>
 }

@@ -5,7 +5,7 @@ package com.sidarau.socialko.domain.core.validation
  */
 interface Validator {
 
-    fun addField(key: String, field: String)
+    fun addField(key: String, field: String?)
 
     fun validate(): Boolean
 
