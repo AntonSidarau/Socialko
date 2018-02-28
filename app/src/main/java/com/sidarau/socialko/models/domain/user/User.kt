@@ -5,7 +5,7 @@ package com.sidarau.socialko.models.domain.user
  */
 data class User(
         val avatarUrl: String,
-        val birthDate: Long?,
+        val birthDate: String?,
         val creationDate: Long,
         val email: String,
         val firstName: String,

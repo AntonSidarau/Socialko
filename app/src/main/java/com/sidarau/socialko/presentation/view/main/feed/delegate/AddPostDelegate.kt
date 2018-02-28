@@ -29,7 +29,7 @@ class AddPostDelegate : AdapterDelegate<MutableList<Any>>() {
     private inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         fun bind() {
-            TODO("handle input and click")
+            //TODO handle input and click
         }
     }
 }

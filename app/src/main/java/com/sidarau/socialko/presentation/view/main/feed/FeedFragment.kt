@@ -34,6 +34,7 @@ class FeedFragment : BaseFragment() {
         recyclerView.layoutManager = LinearLayoutManager(context)
         adapter.addDelegate(AddPostDelegate())
         adapter.addDelegate(PostDelegate())
+        recyclerView.adapter = adapter
 
         viewModel.fetchPosts()
     }
@@ -47,7 +48,7 @@ class FeedFragment : BaseFragment() {
             it?.let {
                 when (it) {
                 //looks like bad decision
-                    is Response.Success<*> -> adapter.items = it as MutableList<Any>
+                    is Response.Success<*> -> adapter.items = it.body as MutableList<Any>
                     is Response.Progress -> showProgressDialog(it.progress)
                     is Response.Error -> {
                         showSnackMessage(getString(R.string.error))

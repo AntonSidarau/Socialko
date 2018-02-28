@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName
  */
 class UserResponse(
         @SerializedName("avatar") val avatarUrl: String,
-        @SerializedName("birthDate") val birthDate: Long?,
+        @SerializedName("birthDate") val birthDate: String?,
         @SerializedName("created") val creationDate: Long,
         @SerializedName("email") val email: String,
         @SerializedName("firstName") val firstName: String,

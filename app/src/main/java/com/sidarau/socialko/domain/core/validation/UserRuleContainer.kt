@@ -55,7 +55,7 @@ class UserRuleContainer @Inject constructor(
         const val PASSWORD = "password"
 
         const val MIN_NAME_LENGTH = 3
-        const val MIN_PASSWORD_LENGTH = 5
+        const val MIN_PASSWORD_LENGTH = 4
 
         private val defaultPair = Pair(true, EMPTY_STRING)
         private val defaultRule: (String) -> Pair<Boolean, String> = { Pair(true, EMPTY_STRING) }
