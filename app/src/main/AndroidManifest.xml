@@ -22,10 +22,11 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name=".presentation.view.auth.AuthActivity" />
+        <activity android:name=".presentation.view.auth.AuthActivity" />
 
-        <activity android:name=".presentation.view.main.MainActivity" />
+        <activity
+            android:name=".presentation.view.main.MainActivity"
+            android:theme="@style/AppTheme.Main" />
 
     </application>
 

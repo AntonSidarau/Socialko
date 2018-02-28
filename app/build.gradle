@@ -58,6 +58,8 @@ dependencies {
     implementation libs.retrofitRxAdapter
     implementation libs.okHttpInterceptor
 
+    implementation libs.adapterDelegate
+
     testImplementation libs.junit
     testImplementation libs.kotlin
     testImplementation libs.mockito, { exclude group: 'net.bytebuddy' }

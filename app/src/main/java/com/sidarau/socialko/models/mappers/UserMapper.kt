@@ -1,4 +1,4 @@
-package com.sidarau.socialko.models.mappers.user
+package com.sidarau.socialko.models.mappers
 
 import com.sidarau.socialko.di.ActivityScope
 import com.sidarau.socialko.models.data.network.user.UserRequest

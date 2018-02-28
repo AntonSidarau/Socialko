@@ -1,9 +1,11 @@
 package com.sidarau.socialko.data.network
 
+import com.sidarau.socialko.models.data.network.feed.PostResponse
 import com.sidarau.socialko.models.data.network.user.UserRequest
 import com.sidarau.socialko.models.data.network.user.UserResponse
 import io.reactivex.Completable
 import io.reactivex.Maybe
+import io.reactivex.Single
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.Headers
@@ -21,4 +23,7 @@ interface SocialkoApi {
     @GET("login")
     @Headers("Content-type: application/json")
     fun login(): Maybe<UserResponse>
+
+    @GET("roll/all")
+    fun getPosts(): Single<List<PostResponse>>
 }

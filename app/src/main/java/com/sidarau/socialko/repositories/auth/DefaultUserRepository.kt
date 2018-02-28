@@ -5,7 +5,7 @@ import com.sidarau.socialko.data.network.auth.AuthHolder
 import com.sidarau.socialko.di.ActivityScope
 import com.sidarau.socialko.models.domain.user.AuthUser
 import com.sidarau.socialko.models.domain.user.User
-import com.sidarau.socialko.models.mappers.user.UserMapper
+import com.sidarau.socialko.models.mappers.UserMapper
 import io.reactivex.Completable
 import io.reactivex.Maybe
 import javax.inject.Inject

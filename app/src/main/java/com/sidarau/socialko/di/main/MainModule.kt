@@ -5,6 +5,6 @@ import dagger.Module
 /**
  * @author Anton Sidorov
  */
-@Module
+@Module(includes = arrayOf(MainFragmentBuilderModule::class))
 interface MainModule {
 }

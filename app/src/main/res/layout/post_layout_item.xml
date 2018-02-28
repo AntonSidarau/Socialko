@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="4dp"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/iconView"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="@color/colorAccent" />
+
+    <TextView
+        android:id="@+id/nameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_toRightOf="@+id/iconView"
+        tools:text="Name Surname" />
+
+    <TextView
+        android:id="@+id/bodyTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iconView"
+        android:layout_marginTop="16dp"
+        tools:text="Adsfdsf sdfdf" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@id/bodyTextView"
+        android:layout_marginTop="16dp"
+        android:background="#444444" />
+
+    <ImageView
+        android:id="@+id/likeImageView"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_below="@+id/divider"
+        android:layout_marginTop="8dp"
+        android:background="@color/colorAccent" />
+
+    <TextView
+        android:id="@+id/likeCounterTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/divider"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="12dp"
+        android:layout_toRightOf="@+id/likeImageView"
+        tools:text="2" />
+</RelativeLayout>
