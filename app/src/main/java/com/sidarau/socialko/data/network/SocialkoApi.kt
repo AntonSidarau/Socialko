@@ -25,5 +25,6 @@ interface SocialkoApi {
     fun login(): Maybe<UserResponse>
 
     @GET("roll/all")
+    @Headers("Content-type: application/json")
     fun getPosts(): Single<List<PostResponse>>
 }
